@@ -5,6 +5,7 @@ import {
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.component";
 import "./sign-up-from.styles.scss"
+
 import Button from "../button/button.component";
 
 const defaultFormFields = {
@@ -48,8 +49,6 @@ const SignUpForm = () => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
-
-  console.log(formFields);
 
   return (
     <div className="sign-up-container">
