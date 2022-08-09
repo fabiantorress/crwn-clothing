@@ -1,9 +1,15 @@
 import "./directory-item.styles.scss";
 
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const DirectoryItem = ({ category }) => {
   const { imageUrl, title } = category;
+
+  const navigate = useNavigate();
+  const handlerToPage = () => {
+    navigate(`shop/${title}`);
+  };
+
   return (
     <div className="directory-item-container">
       <div
@@ -12,9 +18,9 @@ const DirectoryItem = ({ category }) => {
           backgroundImage: `url(${imageUrl})`,
         }}
       />
-      <div className="body">
+      <div className="body" onClick={handlerToPage}>
         <h2>{title}</h2>
-        <Link to={`shop/${title}`}><p>Shop Now</p></Link>
+        <p>Shop Now</p>
       </div>
     </div>
   );
